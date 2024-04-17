@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wayne Sport Goods</title>
+<style>
+    /* CSS */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap; /* for sections to wrap to the next row */
+    }
+    .section {
+        width: calc(33.33% - 20px); /* Adjusted width with padding accounted for */
+        margin: 10px; /* Add spacing between sections */
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ddd; /* Add border for visual separation */
+    }
+    .section h2 {
+        margin-bottom: 5px;
+        cursor: pointer; /* Change cursor to pointer when hovering over the links */
+        color: blue; /* Set initial color */
+    }
+    .section h2:hover {
+        color: darkblue; /* Change color on hover */
+    }
+    .section .content {
+        display: none;
+        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: 200px; /* Set a fixed height for the content */
+    }
+    .tooltip {
+        position: fixed;
+        display: none;
+        width: 33%; /* Adjusted width to take up 33% of the screen */
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .tooltip.active {
+        display: block;
+    }
+    .tooltip .tooltiptext {
+        margin-top: 10px;
+    }
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+    .email-input {
+        display: none;
+    }
+    .email-input.active {
+        display: block;
+    }
+    .reviews-content {
+        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: 200px; /* Set a fixed height for the reviews */
+    }
+    .copyright {
+        clear: both;
+        text-align: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: yellow; /* Change background color to yellow */
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+   
+
+    <footer>
+        <div class="container">
+            <div class="section">
+                <h2 data-toggle="about">About</h2>
+                <div class="content about-content">
+                    <p>Welcome to Wayne Sport Goods, your premier destination for high-quality sports equipment and gear. At Wayne Sport Goods, we are passionate about providing athletes of all levels with the tools they need to excel in their chosen sports. From professional athletes to weekend warriors, we offer a wide range of products including sports apparel, footwear, equipment, and accessories. Our commitment to quality, affordability, and customer satisfaction sets us apart as a leader in the sporting goods industry. Whether you're hitting the field, court, or gym, trust Wayne Sport Goods to help you reach your full potential.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="refund-policies">Refund Policies</h2>
+                <div class="content refund-policies-content">
+                    <p>Our refund policies are designed to be fair and transparent. You may return most new, unopened items within 30 days of delivery for a full refund. No-questions-asked refunds are available if you're unsatisfied with your purchase for any reason. Please note that personalized or customized products may not be eligible for return unless they are defective or damaged upon arrival.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="subscriptions">Subscriptions</h2>
+                <div class="content subscriptions-content">
+                    <p>Subscribe to our newsletter to stay up-to-date with the latest news, product releases, exclusive discounts, and more!</p>
+                    <button onclick="toggleEmailInput()">Subscribe</button>
+                    <div class="email-input" id="emailInput">
+                        <form action="#" method="post">
+                            <label for="email">Enter your email:</label><br>
+                            <input type="email" id="email" name="email" required><br>
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="terms-and-services">Terms and Services</h2>
+                <div class="content terms-and-services-content">
+                    <p>By accessing and using our website, you agree to comply with and be bound by the following terms and conditions of use. These terms and conditions, along with our privacy policy, govern our relationship with you regarding this website. The use of this website is subject to the following terms.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="mission">Mission</h2>
+                <div class="content mission-content">
+                    <p>Our mission at Wayne Sport Goods is to provide athletes with the highest quality sports equipment and gear to help them achieve their goals. We are committed to offering a wide range of products at competitive prices, backed by excellent customer service and support.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="history">History</h2>
+                <div class="content history-content">
+                    <p>Wayne Sport Goods has been serving athletes since 2023. Over the years, we have built a reputation for excellence in the sporting goods industry. Our commitment to quality, integrity, and customer satisfaction has made us a trusted name among athletes of all levels.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="payment-methods">Payment Methods</h2>
+                <div class="content payment-methods-content">
+                    <p>At Wayne Sport Goods, we accept various payment methods including Visa, Mastercard, American Express, Discover, PayPal, Apple Pay, and Affirm. Secure payments guaranteed.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2 data-toggle="reviews">Reviews</h2>
+                <div class="content reviews-content">
+                    <div class="review">
+                        <h3>John Doe</h3>
+                        <p>"Wayne Sport Goods offers an amazing selection of sports gear at competitive prices. I've been a customer for years and have always been impressed with the quality of their products and the efficiency of their service. Highly recommended!"</p>
+                    </div>
+                    <div class="review">
+                        <h3>Jane Smith</h3>
+                        <p>"I recently purchased a pair of running shoes from Wayne Sport Goods, and I couldn't be happier with my purchase. The shoes are comfortable, durable, and exactly what I was looking for. Plus, the shipping was super fast!"</p>
+                    </div>
+                    <div class="review">
+                        <h3>Michael Johnson</h3>
+                        <p>"I've had a great experience shopping at Wayne Sport Goods. Their website is easy to navigate, their prices are competitive, and their customer service is top-notch. I'll definitely be returning for future purchases."</p>
+                    </div>
+                    <div class="review">
+                        <h3>Sarah Williams</h3>
+                        <p>"Unfortunately, my experience with Wayne Sport Goods was less than satisfactory. I ordered a basketball hoop online, and it arrived damaged due to poor packaging. While the customer service team was responsive and offered a refund, I was disappointed with the inconvenience."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add copyright notice -->
+        <div class="copyright">
+            &copy; 2023 Wayne Sport Goods. All rights reserved.
+        </div>
+
+        <!-- Tooltip -->
+        <div class="tooltip" id="tooltip">
+            <div class="tooltiptext">
+                <!-- Tooltip content -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the display of the content sections
+        var sections = document.querySelectorAll('.section');
+
+        sections.forEach(function(section) {
+            var toggleId = section.querySelector('h2').getAttribute('data-toggle');
+            var content = section.querySelector('.content');
+
+            section.querySelector('h2').addEventListener('click', function() {
+                var tooltip = document.getElementById('tooltip');
+                var tooltipContent = content.innerHTML;
+                var tooltipText = tooltip.querySelector('.tooltiptext');
+                tooltipText.innerHTML = tooltipContent;
+                tooltip.classList.add('active');
+            });
+        });
+
+        // Function to toggle email input for subscription
+        function toggleEmailInput(event) {
+            event.stopPropagation(); // Stop event propagation to prevent tooltip from closing
+            var emailInput = document.getElementById('emailInput');
+            emailInput.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
