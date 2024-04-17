@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    
 }
 
 header, nav {
@@ -16,10 +17,14 @@ nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
+    text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 30px #f00;
+    transition: text-shadow 0.3s;
+    cursor: pointer;
 }
 
 nav a:hover {
     text-decoration: underline;
+    text-shadow: none;
 }
 
 section {
