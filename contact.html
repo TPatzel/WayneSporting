@@ -16,29 +16,28 @@
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #000;
-            padding: 20px 0;
-            text-align: center;
+        header, nav {
+    		background-color: #000;
+    		padding: 10px 0;
+    		text-align: center;
+        }
+
+        nav a {
+    		color: #fff;
+    		text-decoration: none;
+    		margin: 0 10px;
+    		text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 30px #f00;
+    		transition: text-shadow 0.3s;
+    		cursor: pointer;
+        }
+
+        nav a:hover {
+    		text-decoration: underline;
+    		text-shadow: none;
         }
         header img {
             max-width: 100%;
             height: auto;
-        }
-        nav {
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            transition: text-shadow 0.3s;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            text-shadow: none;
         }
         section {
             max-width: 800px;
