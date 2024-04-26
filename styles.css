@@ -1,10 +1,10 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    
 }
 
 header, nav {
@@ -68,4 +68,25 @@ section {
 
 .social-link img:hover {
     transform: scale(1.2);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    nav {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .social-links h3 {
+        font-size: 20px;
+    }
+
+    .social-link img {
+        width: 40px;
+        height: 40px;
+    }
 }
