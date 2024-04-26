@@ -32,6 +32,10 @@ section {
     text-align: center;
 }
 
+.category {
+    padding: 25px;
+}
+
 .product {
     display: inline-block;
     margin: 20px;
